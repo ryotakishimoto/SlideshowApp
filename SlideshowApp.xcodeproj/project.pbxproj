@@ -12,6 +12,10 @@
 		39FA2FAF1F61776800AC0554 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39FA2FAD1F61776800AC0554 /* Main.storyboard */; };
 		39FA2FB11F61776800AC0554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39FA2FB01F61776800AC0554 /* Assets.xcassets */; };
 		39FA2FB41F61776800AC0554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39FA2FB21F61776800AC0554 /* LaunchScreen.storyboard */; };
+		39FA2FBE1F617A1100AC0554 /* 画像1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 39FA2FBB1F617A1100AC0554 /* 画像1.jpeg */; };
+		39FA2FBF1F617A1100AC0554 /* 画像2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 39FA2FBC1F617A1100AC0554 /* 画像2.jpeg */; };
+		39FA2FC01F617A1100AC0554 /* 画像3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 39FA2FBD1F617A1100AC0554 /* 画像3.jpeg */; };
+		39FA2FC21F617B4800AC0554 /* BigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA2FC11F617B4800AC0554 /* BigViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		39FA2FB01F61776800AC0554 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39FA2FB31F61776800AC0554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39FA2FB51F61776800AC0554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39FA2FBB1F617A1100AC0554 /* 画像1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "画像1.jpeg"; sourceTree = "<group>"; };
+		39FA2FBC1F617A1100AC0554 /* 画像2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "画像2.jpeg"; sourceTree = "<group>"; };
+		39FA2FBD1F617A1100AC0554 /* 画像3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "画像3.jpeg"; sourceTree = "<group>"; };
+		39FA2FC11F617B4800AC0554 /* BigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +62,12 @@
 		39FA2FA81F61776800AC0554 /* SlideshowApp */ = {
 			isa = PBXGroup;
 			children = (
+				39FA2FBB1F617A1100AC0554 /* 画像1.jpeg */,
+				39FA2FBC1F617A1100AC0554 /* 画像2.jpeg */,
+				39FA2FBD1F617A1100AC0554 /* 画像3.jpeg */,
 				39FA2FA91F61776800AC0554 /* AppDelegate.swift */,
 				39FA2FAB1F61776800AC0554 /* ViewController.swift */,
+				39FA2FC11F617B4800AC0554 /* BigViewController.swift */,
 				39FA2FAD1F61776800AC0554 /* Main.storyboard */,
 				39FA2FB01F61776800AC0554 /* Assets.xcassets */,
 				39FA2FB21F61776800AC0554 /* LaunchScreen.storyboard */,
@@ -126,6 +138,9 @@
 				39FA2FB41F61776800AC0554 /* LaunchScreen.storyboard in Resources */,
 				39FA2FB11F61776800AC0554 /* Assets.xcassets in Resources */,
 				39FA2FAF1F61776800AC0554 /* Main.storyboard in Resources */,
+				39FA2FC01F617A1100AC0554 /* 画像3.jpeg in Resources */,
+				39FA2FBF1F617A1100AC0554 /* 画像2.jpeg in Resources */,
+				39FA2FBE1F617A1100AC0554 /* 画像1.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +153,7 @@
 			files = (
 				39FA2FAC1F61776800AC0554 /* ViewController.swift in Sources */,
 				39FA2FAA1F61776800AC0554 /* AppDelegate.swift in Sources */,
+				39FA2FC21F617B4800AC0554 /* BigViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
