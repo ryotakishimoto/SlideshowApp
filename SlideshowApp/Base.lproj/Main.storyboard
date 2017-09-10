@@ -22,16 +22,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73c-nc-lUv">
-                                <rect key="frame" x="103" y="597" width="31" height="30"/>
+                                <rect key="frame" x="121" y="597" width="31" height="30"/>
                                 <state key="normal" title="戻る"/>
+                                <connections>
+                                    <action selector="Back:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2ps-5q-AOb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lvm-TD-8QP">
-                                <rect key="frame" x="154" y="597" width="67" height="30"/>
-                                <state key="normal" title="再生/停止"/>
+                                <rect key="frame" x="172" y="597" width="31" height="30"/>
+                                <state key="normal" title="再生"/>
+                                <state key="highlighted" title="停止">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="StartStop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C9V-It-Cj1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMX-PA-rbx">
-                                <rect key="frame" x="241" y="597" width="31" height="30"/>
+                                <rect key="frame" x="223" y="597" width="31" height="30"/>
                                 <state key="normal" title="進む"/>
+                                <connections>
+                                    <action selector="Next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ymh-d0-Vtt"/>
+                                </connections>
                             </button>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zXR-GN-K68">
                                 <rect key="frame" x="50" y="170" width="275" height="333"/>
@@ -58,7 +70,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="TapImage" destination="XLb-oI-hJz" id="CO7-Vn-za9"/>
                         <outlet property="TapImage_out" destination="XLb-oI-hJz" id="HJK-BC-bMk"/>
                         <outlet property="imageView" destination="zXR-GN-K68" id="h06-Xh-pbf"/>
                     </connections>
