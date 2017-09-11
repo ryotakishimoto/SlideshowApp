@@ -31,7 +31,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lvm-TD-8QP">
                                 <rect key="frame" x="172" y="597" width="31" height="30"/>
                                 <state key="normal" title="再生"/>
-                                <state key="highlighted" title="停止">
+                                <state key="selected" title="停止">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -45,12 +48,12 @@
                                     <action selector="Next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ymh-d0-Vtt"/>
                                 </connections>
                             </button>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zXR-GN-K68">
-                                <rect key="frame" x="50" y="170" width="275" height="333"/>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zXR-GN-K68">
+                                <rect key="frame" x="140" y="288" width="94" height="90"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="333" id="Zcg-52-LbE"/>
-                                    <constraint firstAttribute="width" constant="275" id="a5y-eX-j3H"/>
+                                    <constraint firstAttribute="width" constant="94" id="VCG-jY-uf8"/>
+                                    <constraint firstAttribute="height" constant="90" id="phC-A9-aQ2"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="XLb-oI-hJz" appends="YES" id="OgD-Wa-OB2"/>
@@ -60,16 +63,19 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="73c-nc-lUv" secondAttribute="bottom" constant="40" id="Fcc-tU-LT6"/>
+                            <constraint firstItem="zXR-GN-K68" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="INf-M0-IUh"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lvm-TD-8QP" secondAttribute="bottom" constant="40" id="NaO-lJ-YvX"/>
-                            <constraint firstItem="zXR-GN-K68" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="Ti7-dz-L22"/>
                             <constraint firstItem="AMX-PA-rbx" firstAttribute="leading" secondItem="lvm-TD-8QP" secondAttribute="trailing" constant="20" id="Zs5-jD-sOj"/>
-                            <constraint firstItem="zXR-GN-K68" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nFC-rg-x7b"/>
                             <constraint firstItem="lvm-TD-8QP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pI3-s0-qP7"/>
+                            <constraint firstItem="zXR-GN-K68" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pzb-WV-Yza"/>
                             <constraint firstItem="lvm-TD-8QP" firstAttribute="leading" secondItem="73c-nc-lUv" secondAttribute="trailing" constant="20" id="u4e-Or-FOQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AMX-PA-rbx" secondAttribute="bottom" constant="40" id="x85-Oe-Xf4"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="BackOut" destination="73c-nc-lUv" id="ZuJ-YZ-huL"/>
+                        <outlet property="NextOut" destination="AMX-PA-rbx" id="xli-qI-ObJ"/>
+                        <outlet property="StartButton" destination="lvm-TD-8QP" id="lIX-UX-P9o"/>
                         <outlet property="TapImage_out" destination="XLb-oI-hJz" id="HJK-BC-bMk"/>
                         <outlet property="imageView" destination="zXR-GN-K68" id="h06-Xh-pbf"/>
                     </connections>
@@ -96,18 +102,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4E-n9-Vvf">
-                                <rect key="frame" x="172" y="605" width="31" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4E-n9-Vvf">
+                                <rect key="frame" x="172" y="597" width="31" height="30"/>
                                 <state key="normal" title="戻る"/>
                                 <connections>
                                     <segue destination="8fR-zp-BMC" kind="unwind" unwindAction="unwind:" id="tF7-7s-Rec"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tsk-C8-3T8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tsk-C8-3T8" firstAttribute="centerY" secondItem="S2P-4w-uZB" secondAttribute="centerY" id="Fpp-QN-vV5"/>
+                            <constraint firstItem="Tsk-C8-3T8" firstAttribute="top" secondItem="S2P-4w-uZB" secondAttribute="top" id="Hmg-bs-pOq"/>
+                            <constraint firstItem="Tsk-C8-3T8" firstAttribute="centerX" secondItem="S2P-4w-uZB" secondAttribute="centerX" id="I39-B0-L9V"/>
+                            <constraint firstItem="z4E-n9-Vvf" firstAttribute="centerX" secondItem="S2P-4w-uZB" secondAttribute="centerX" id="QkS-X6-eca"/>
+                            <constraint firstAttribute="trailing" secondItem="Tsk-C8-3T8" secondAttribute="trailing" id="bBg-tH-bHY"/>
+                            <constraint firstItem="Uml-LO-Kdq" firstAttribute="top" secondItem="z4E-n9-Vvf" secondAttribute="bottom" constant="40" id="iZl-OP-zAV"/>
+                            <constraint firstItem="Tsk-C8-3T8" firstAttribute="leading" secondItem="S2P-4w-uZB" secondAttribute="leading" id="rRU-kz-bAg"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="bigImage" destination="Tsk-C8-3T8" id="xtZ-Td-a1T"/>
                         <outlet property="return" destination="z4E-n9-Vvf" id="xSN-qa-wHd"/>
                     </connections>
                 </viewController>

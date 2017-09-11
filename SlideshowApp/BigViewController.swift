@@ -11,9 +11,15 @@ import UIKit
 class BigViewController: UIViewController {
 
     @IBOutlet weak var `return`: UIButton!
+    
+    @IBOutlet weak var bigImage: UIImageView!
+        var bigPhoto: UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        bigImage.image = bigPhoto//viewDidLoadの上に書いていたのをここにした
+        
         // Do any additional setup after loading the view.
     }
 
