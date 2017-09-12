@@ -32,6 +32,10 @@ class ViewController: UIViewController {
     }
  
     @IBOutlet var TapImage_out: UITapGestureRecognizer!
+    @IBOutlet weak var NextOut: UIButton!
+    @IBOutlet weak var BackOut: UIButton!
+    @IBOutlet weak var StartButton: UIButton!
+    
     @IBAction func TapImage(_ sender:UITapGestureRecognizer) {
         performSegue(withIdentifier:"big",sender:nil)
     }
@@ -47,7 +51,7 @@ class ViewController: UIViewController {
         resultViewController.bigPhoto = image//UIImageViewを送るのではなくUIImageを送る様にした
     }
 
-    @IBOutlet weak var NextOut: UIButton!
+    
     @IBAction func Next(_ sender: Any) {
         // 表示している画像の番号を1減らす
         photoNo += 1
@@ -55,7 +59,7 @@ class ViewController: UIViewController {
         displayphoto()
     }
     
-    @IBOutlet weak var BackOut: UIButton!
+   
     @IBAction func Back(_ sender: Any) {
         // 表示している画像の番号を1減らす
         photoNo -= 1
@@ -69,11 +73,11 @@ class ViewController: UIViewController {
         displayphoto()// 表示している画像の番号を元に画像を表示する
     }
     
-    @IBOutlet weak var StartButton: UIButton!
+    
     @IBAction func StartStop(_ sender: Any) {
         if StartButton.isSelected == false{
             if self.timer == nil {
-        self.timer = Timer.scheduledTimer(timeInterval:1.0, target: self, selector: #selector(ViewController.photoTimer), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval:2.0, target: self, selector: #selector(ViewController.photoTimer), userInfo: nil, repeats: true)
         StartButton.isSelected = true
         NextOut.isEnabled = false
         BackOut.isEnabled = false
@@ -93,11 +97,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     
-        
-        let image:UIImage! = UIImage(named:photos[0])
+        let image:UIImage! = UIImage(named:photos[photoNo])
         imageView.image = image
-        
-        
+    
     }
     override func didReceiveMemoryWarning()  {
         super.didReceiveMemoryWarning()
