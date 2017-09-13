@@ -10,13 +10,31 @@ import UIKit
 
 class ViewController: UIViewController {
     // 画像の名前の配列
-    let photos = ["画像1.jpeg","画像2.jpeg","画像3.jpeg"]
     
-  @IBOutlet weak var imageView: UIImageView!
-   
-    var photoNo = 0
-    func displayphoto() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
         
+        let image:UIImage! = UIImage(named:photos[photoNo])
+        imageView.image = image
+        
+    }
+    override func didReceiveMemoryWarning()  {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    let photos = ["画像1.jpeg","画像2.jpeg","画像3.jpeg"]
+    var timer: Timer!
+    var photoNo = 0
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet var TapImage_out: UITapGestureRecognizer!
+    @IBOutlet weak var NextOut: UIButton!
+    @IBOutlet weak var BackOut: UIButton!
+    @IBOutlet weak var StartButton: UIButton!
+    
+    func displayphoto() {
         if photoNo < 0 {
             photoNo = 2
         }
@@ -30,14 +48,28 @@ class ViewController: UIViewController {
         // Image Viewに読み込んだ画像をセット
         imageView.image = image
     }
- 
-    @IBOutlet var TapImage_out: UITapGestureRecognizer!
-    @IBOutlet weak var NextOut: UIButton!
-    @IBOutlet weak var BackOut: UIButton!
-    @IBOutlet weak var StartButton: UIButton!
     
     @IBAction func TapImage(_ sender:UITapGestureRecognizer) {
         performSegue(withIdentifier:"big",sender:nil)
+    }
+    
+    
+    @IBAction func Next(_ sender: Any) {
+        // 表示している画像の番号を1減らす
+        photoNo += 1
+        // 表示している画像の番号を元に画像を表示する
+        displayphoto()
+    }
+    @IBAction func Back(_ sender: Any) {
+        // 表示している画像の番号を1減らす
+        photoNo -= 1
+        // 表示している画像の番号を元に画像を表示する
+        displayphoto()
+    }
+    
+    func photoTimer(timer: Timer) {
+        photoNo += 1// 表示している画像の番号を1増やす
+        displayphoto()// 表示している画像の番号を元に画像を表示する
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,43 +81,24 @@ class ViewController: UIViewController {
         let image = UIImage(named: name)
         // Image Viewに読み込んだ画像をセット
         resultViewController.bigPhoto = image//UIImageViewを送るのではなくUIImageを送る様にした
+        if self.timer != nil {
+            self.timer.invalidate()// 現在のタイマーを破棄する
+            self.timer = nil//tapimageに入れていたがここに移動
+        }
     }
-
-    
-    @IBAction func Next(_ sender: Any) {
-        // 表示している画像の番号を1減らす
-        photoNo += 1
-        // 表示している画像の番号を元に画像を表示する
-        displayphoto()
-    }
-    
-   
-    @IBAction func Back(_ sender: Any) {
-        // 表示している画像の番号を1減らす
-        photoNo -= 1
-        // 表示している画像の番号を元に画像を表示する
-        displayphoto()
-    }
-    
-    var timer: Timer!
-    func photoTimer(timer: Timer) {
-        photoNo += 1// 表示している画像の番号を1増やす
-        displayphoto()// 表示している画像の番号を元に画像を表示する
-    }
-    
     
     @IBAction func StartStop(_ sender: Any) {
         if StartButton.isSelected == false{
             if self.timer == nil {
-        self.timer = Timer.scheduledTimer(timeInterval:2.0, target: self, selector: #selector(ViewController.photoTimer), userInfo: nil, repeats: true)
-        StartButton.isSelected = true
-        NextOut.isEnabled = false
-        BackOut.isEnabled = false
+                self.timer = Timer.scheduledTimer(timeInterval:2.0, target: self, selector: #selector(ViewController.photoTimer), userInfo: nil, repeats: true)
+                StartButton.isSelected = true
+                NextOut.isEnabled = false
+                BackOut.isEnabled = false
             }
         }else{
-             StartButton.isSelected = false
-             NextOut.isEnabled = true
-             BackOut.isEnabled = true
+            StartButton.isSelected = false
+            NextOut.isEnabled = true
+            BackOut.isEnabled = true
             if self.timer != nil {
                 self.timer.invalidate()
                 self.timer = nil
@@ -93,22 +106,8 @@ class ViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    
-        let image:UIImage! = UIImage(named:photos[photoNo])
-        imageView.image = image
-    
-    }
-    override func didReceiveMemoryWarning()  {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
     }
-
 }
 
 
