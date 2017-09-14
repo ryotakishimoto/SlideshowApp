@@ -84,6 +84,9 @@ class ViewController: UIViewController {
         if self.timer != nil {
             self.timer.invalidate()// 現在のタイマーを破棄する
             self.timer = nil//tapimageに入れていたがここに移動
+            StartButton.isSelected = false
+            NextOut.isEnabled = true
+            BackOut.isEnabled = true
         }
     }
     
